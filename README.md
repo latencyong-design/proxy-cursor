@@ -8,6 +8,14 @@ proxy-cursor is a small Windows helper that starts ProxyBridge in the
 background and routes only `Cursor.exe` TCP traffic to a local SOCKS5 or HTTP
 proxy. Other applications keep their normal network route.
 
+## Platform Support
+
+proxy-cursor is Windows-only.
+
+It depends on Windows Scheduled Tasks and ProxyBridge's Windows packet
+interception path. macOS and Linux need different networking primitives and are
+not supported by this release line.
+
 ## What It Does
 
 - Registers a Windows scheduled task named `CursorProxyBridge`.
@@ -32,6 +40,12 @@ ProxyBridge: <https://github.com/InterceptSuite/ProxyBridge>
 Download the latest release zip:
 
 <https://github.com/latencyong-design/proxy-cursor/releases>
+
+Use the Windows asset:
+
+```text
+proxy-cursor-windows-x64-v*.zip
+```
 
 Extract it anywhere, then run:
 
@@ -131,6 +145,13 @@ proxy-cursor 是一个 Windows 小工具：它会在后台启动 ProxyBridge，�
 `Cursor.exe` 的 TCP 流量转发到本地 SOCKS5 或 HTTP 代理。其他应用仍然使用原来的
 网络路线。
 
+## 平台支持
+
+proxy-cursor 仅支持 Windows。
+
+它依赖 Windows 计划任务，以及 ProxyBridge 在 Windows 上的网络拦截路径。macOS 和
+Linux 需要不同的网络机制，不属于这个 release line 的支持范围。
+
 ## 功能
 
 - 注册名为 `CursorProxyBridge` 的 Windows 计划任务。
@@ -154,6 +175,12 @@ ProxyBridge：<https://github.com/InterceptSuite/ProxyBridge>
 从 Release 下载最新 zip：
 
 <https://github.com/latencyong-design/proxy-cursor/releases>
+
+请下载 Windows 资产：
+
+```text
+proxy-cursor-windows-x64-v*.zip
+```
 
 解压后运行：
 

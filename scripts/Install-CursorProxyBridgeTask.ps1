@@ -1,18 +1,19 @@
 $ErrorActionPreference = "Stop"
 
 $taskName = "CursorProxyBridge"
-$launcher = Join-Path $PSScriptRoot "Start-CursorProxyBridgeHidden.vbs"
-$proxyBridge = "C:\Program Files\ProxyBridge\ProxyBridge_CLI.exe"
+$config = & (Join-Path $PSScriptRoot "Get-CursorProxyBridgeConfig.ps1")
+$runner = Join-Path $PSScriptRoot "Run-CursorProxyBridge.ps1"
 
-if (-not (Test-Path -LiteralPath $proxyBridge)) {
-    throw "ProxyBridge not found: $proxyBridge"
+if (-not (Test-Path -LiteralPath $config.ProxyBridgePath)) {
+    throw "ProxyBridge not found: $($config.ProxyBridgePath)"
 }
 
-if (-not (Test-Path -LiteralPath $launcher)) {
-    throw "Launcher not found: $launcher"
+if (-not (Test-Path -LiteralPath $runner)) {
+    throw "Runner not found: $runner"
 }
 
-$action = New-ScheduledTaskAction -Execute "wscript.exe" -Argument "`"$launcher`""
+$actionArgs = "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$runner`""
+$action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument $actionArgs
 $principal = New-ScheduledTaskPrincipal -UserId $env:USERNAME -LogonType Interactive -RunLevel Highest
 $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -ExecutionTimeLimit 0 -MultipleInstances IgnoreNew -Hidden
 

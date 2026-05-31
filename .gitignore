@@ -1,5 +1,7 @@
 *.log
 *.tmp
 *.bak
+config/proxy-cursor.config.ps1
+state/
 .DS_Store
 Thumbs.db

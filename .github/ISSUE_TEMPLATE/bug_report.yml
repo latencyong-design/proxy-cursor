@@ -1,0 +1,48 @@
+name: Bug report
+description: Report a reproducible proxy-cursor problem.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the visible failure.
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 11 23H2
+    validations:
+      required: true
+  - type: input
+    id: cursor
+    attributes:
+      label: Cursor version
+    validations:
+      required: true
+  - type: input
+    id: proxybridge
+    attributes:
+      label: ProxyBridge version
+    validations:
+      required: true
+  - type: textarea
+    id: status
+    attributes:
+      label: Status output
+      description: Paste `scripts\Status-CursorProxyBridge.bat` output. Redact private paths and proxy credentials.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Run ...
+        2. Observe ...
+    validations:
+      required: true

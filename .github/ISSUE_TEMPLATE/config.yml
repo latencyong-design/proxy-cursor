@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: ProxyBridge upstream
+    url: https://github.com/InterceptSuite/ProxyBridge
+    about: Use this for ProxyBridge bugs that reproduce without proxy-cursor.
